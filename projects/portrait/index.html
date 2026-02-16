@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Starter</title>
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        canvas {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+
+    <script>
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+
+  //this radius3 is for my neck//
+    const radius3 = 250;
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.arc(370, 580, radius3, 3, 0 * Math.PI, false);
+    ctx.fill();
+
+
+  //all of the code here is for my clothes//
+  ctx.fillStyle = "black"; 
+  ctx.fillRect(170, 450, 400, 180);
+  ctx.fillStyle = "grey";
+  ctx.fillRect(70, 500, 200, 100);
+  ctx.fillStyle = "grey";
+  ctx.fillRect(500, 500, 200, 100);
+  ctx.fillStyle = "grey";
+  ctx.fillRect(380, 500, 20, 350);
+  ctx.fillStyle = "grey";
+  ctx.fillRect(170, 450, 400, 20);
+
+  //white rectangle to change neck shape//
+   ctx.fillStyle = "white";
+   ctx.fillRect(170, 270, 400, 100)
+
+  //this is for my ears//                                                   
+  const radius10 = 40;                                                     
+  ctx.fillStyle = "#d8c3af";                                                    
+  ctx.beginPath();                                                            
+  ctx.arc(240, 240, radius10, 0, 2 * Math.PI, false);                        
+  ctx.fill();
+ 
+  const radius11 = 40;                                                          
+  ctx.fillStyle = "#d8c3af";                                                    
+  ctx.beginPath();                                                              
+  ctx.arc(500, 240, radius11, 0, 2 * Math.PI, false);                           
+  ctx.fill();   
+
+  //this radius is fort my head//
+  const radius = 150;
+  ctx.fillStyle = "#FFE5B4";
+  ctx.beginPath();
+  ctx.arc(370, 250, radius, 0, 2 * Math.PI, false);
+  ctx.fill();
+   //radiusTwo is my left eye
+   const radiusTwo = 25;
+   ctx.fillStyle = "white";
+   ctx.beginPath();
+   ctx.arc(300, 250, radiusTwo, 0, 2 * Math.PI, false);
+   ctx.fill();
+    //radiusThree is my right eye//
+    const radiusThree = 25;
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(425, 250, radiusTwo, 0, 2 * Math.PI, false);
+    ctx.fill();
+     //radius blue if for my pupil 
+     const radiusBlue = 10;
+     ctx.fillStyle = "#004687";
+     ctx.beginPath();
+     ctx.arc(425, 250, radiusBlue, 0, 2 * Math.PI, false);
+     ctx.fill();
+      //radius blue1 is for my pupil
+       const radiusBlue1 = 10;
+       ctx.fillStyle = "#004687";
+       ctx.beginPath();
+       ctx.arc(300, 250, radiusBlue1, 0, 2 * Math.PI, false);
+       ctx.fill();
+       ctx.fillStyle = "#FFCC99";
+       ctx.fillRect(350, 250, 20, 60)
+       //this is for my eyebrows//
+       ctx.fillStyle = "#be9b7b";
+       ctx.fillRect(260, 200, 70, 15);
+       ctx.fillStyle = "#be9b7b";
+       ctx.fillRect(390, 200, 70, 15);
+       // this is for my mouth//
+     ctx.beginPath();
+     ctx.moveTo(280, 300);
+     ctx.bezierCurveTo(270, 380, 450, 380, 450, 300);
+     ctx.stroke();
+      
+      //this is for my hands//
+      ctx.fillStyle = "#FFE5B4";                                               
+      ctx.fillRect(90, 520, 100, 80);
+      ctx.fillStyle = "#FFE5B4";
+      ctx.fillRect(570, 520, 100, 80); 
+                                                     
+      //this is for my hair//
+       const radiusHair = 150;                                                     
+     ctx.fillStyle = "#FDE300";                                                 
+     ctx.beginPath();                                                           
+     ctx.arc(360, 150, radiusHair, 9,0 * Math.PI, false);                      
+     ctx.fill();  
+     const radiusHair1 = 140;                                                     
+     ctx.fillStyle = "yellow";                                                 
+    ctx.beginPath();                                                           
+    ctx.arc(360, 150, radiusHair1, 9,0 * Math.PI, false);                       
+    ctx.fill();
+   
+  const radiusHair2 = 125;                                                     
+   ctx.fillStyle = "FDE300";                                                   
+   ctx.beginPath();                                                            
+   ctx.arc(360, 150, radiusHair2, 9,0 * Math.PI, false);                       
+   ctx.fill();  
+        
+  </script>
+
+
+    </script>
+</body>
+</html>
+
+
