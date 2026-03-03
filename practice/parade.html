@@ -3,42 +3,40 @@
 <html>
 
 <head>
-
 <title>SNOWMAN PARTY</title>
-
 <style>
   body { margin: 0; overflow: hidden; background-color: lightblue; }
   canvas { display: block; border: 2px solid black; }
 </style>
-
 </head>
 
 <body>
-
 <canvas id="myCanvas"></canvas>
 
 <script>
-    const canvas = document.getElementById('myCanvas');
+  const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
-     canvas.width = 1400;
+  canvas.width = 1400;
   canvas.height = 780;
- 
-//snow man x speed and dimenstions being defined 
-    let snowmanX = canvas.width / 2; 
+
+  //snow man x speed and dimenstions being defined 
+  let snowmanX = canvas.width / 2; 
   const snowmanY = canvas.height - 150; 
-        const snowmanBodyR = 70;
+  const snowmanBodyR = 70;
   const snowmanHeadR = 50;
   let snowmanSpeed = 3; 
-// snows man x2 dimensions and speed being defined 
+
+  // snows man x2 dimensions and speed being defined 
   let snowmanX2 = canvas.width * 0.2;
-    const snowmanY2 = canvas.height - 600;
+  const snowmanY2 = canvas.height - 600;
   let snowmanSpeed2 = 7;
-// snow many x3 dimensions and speed 
-    let snowmanX3 = canvas.width * 0.8;
+
+  // snow many x3 dimensions and speed 
+  let snowmanX3 = canvas.width * 0.8;
   const snowmanY3 = canvas.height - 450;
   let snowmanSpeed3 = -5.8;
   
-    let snowmanX4 = canvas.width * 0.35;
+  let snowmanX4 = canvas.width * 0.35;
   const snowmanY4 = canvas.height - 100;
   let snowmanSpeed4 = 8.6;
 
@@ -46,61 +44,86 @@
   const snowmanY5 = canvas.height - 300;
   let snowmanSpeed5 = -1.9;
 
+// function to draw a tree
+  function drawTree() {
+    const trunkWidth = 40;
+    const trunkHeight = 80;
+    const treeX = 150;
+    const treeY = canvas.height - 200;
 
-//this defines a function anad draws the snowman on the canvas 
+   // draw the stump of the tree
+    ctx.fillStyle = "saddlebrown";
+    ctx.fillRect(treeX - trunkWidth/2, treeY, trunkWidth, trunkHeight);
+
+
+        ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.moveTo(treeX, treeY - 220);
+    ctx.lineTo(treeX - 100, treeY);
+       ctx.lineTo(treeX + 100, treeY);
+    ctx.closePath();
+    ctx.fill();
+   ctx.beginPath();
+    ctx.moveTo(treeX, treeY - 160);
+       ctx.lineTo(treeX - 80, treeY - 20);
+    ctx.lineTo(treeX + 80, treeY - 20);
+    ctx.closePath();
+    ctx.fill();
+ ctx.beginPath();
+    ctx.moveTo(treeX, treeY - 100);
+       ctx.lineTo(treeX - 60, treeY - 40);
+    ctx.lineTo(treeX + 60, treeY - 40);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  // draws all the snowman on the canvas  
   function drawSnowman(x, y, bodyRadius, headRadius) {
     ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.arc(x, y, bodyRadius, 0, Math.PI * 2, true);
     ctx.fill();
     ctx.closePath();
-  ctx.beginPath();
+
+    ctx.beginPath();
     ctx.arc(x, y - bodyRadius - headRadius + 10, headRadius, 0, Math.PI * 2, true);
     ctx.fill();
-      ctx.closePath();
+    ctx.closePath();
   }
 
-    function animate() {
-     ctx.clearRect(0, 0, canvas.width, canvas.height);
- //This makes the snowman repeatedly bounce back and forth when they hit the left and right wall 
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-       drawSnowman(snowmanX, snowmanY, snowmanBodyR, snowmanHeadR);
-    drawSnowman(snowmanX2, snowmanY2, snowmanBodyR, snowmanHeadR);
+   
+   drawTree();
+
+    drawSnowman(snowmanX, snowmanY, snowmanBodyR, snowmanHeadR);
+       drawSnowman(snowmanX2, snowmanY2, snowmanBodyR, snowmanHeadR);
          drawSnowman(snowmanX3, snowmanY3, snowmanBodyR, snowmanHeadR);
-    drawSnowman(snowmanX4, snowmanY4, snowmanBodyR, snowmanHeadR);
-          drawSnowman(snowmanX5, snowmanY5, snowmanBodyR, snowmanHeadR);
-  
-         snowmanX += snowmanSpeed;
-       snowmanX2 += snowmanSpeed2;
-       snowmanX3 += snowmanSpeed3;
-    snowmanX4 += snowmanSpeed4;
+       drawSnowman(snowmanX4, snowmanY4, snowmanBodyR, snowmanHeadR);
+    drawSnowman(snowmanX5, snowmanY5, snowmanBodyR, snowmanHeadR);
+
+    // Move snowmen
+    snowmanX += snowmanSpeed;
+        snowmanX2 += snowmanSpeed2;
+    snowmanX3 += snowmanSpeed3;
+          snowmanX4 += snowmanSpeed4;
     snowmanX5 += snowmanSpeed5;
 
-
-
-//This checks if the snowman have hit the edges and if they did it reverses 
-    if (snowmanX + snowmanBodyR > canvas.width || snowmanX - snowmanBodyR < 0) {
-      snowmanSpeed = -snowmanSpeed;      }
-    if (snowmanX2 + snowmanBodyR > canvas.width || snowmanX2 - snowmanBodyR < 0) {
-      snowmanSpeed2 = -snowmanSpeed2;   }
-    if (snowmanX3 + snowmanBodyR > canvas.width || snowmanX3 - snowmanBodyR < 0) {
-      snowmanSpeed3 = -snowmanSpeed3;  }
-
-    if (snowmanX4 + snowmanBodyR > canvas.width || snowmanX4 - snowmanBodyR < 0) {
-      snowmanSpeed4 = -snowmanSpeed4;      }
-    
-    if (snowmanX5 + snowmanBodyR > canvas.width || snowmanX5 - snowmanBodyR < 0) {
-      snowmanSpeed5 = -snowmanSpeed5;
-    }
+    // Bounce them off walls
+    if (snowmanX + snowmanBodyR > canvas.width || snowmanX - snowmanBodyR < 0) snowmanSpeed = -snowmanSpeed;
+    if (snowmanX2 + snowmanBodyR > canvas.width || snowmanX2 - snowmanBodyR < 0) snowmanSpeed2 = -snowmanSpeed2;
+    if (snowmanX3 + snowmanBodyR > canvas.width || snowmanX3 - snowmanBodyR < 0) snowmanSpeed3 = -snowmanSpeed3;
+    if (snowmanX4 + snowmanBodyR > canvas.width || snowmanX4 - snowmanBodyR < 0) snowmanSpeed4 = -snowmanSpeed4;
+    if (snowmanX5 + snowmanBodyR > canvas.width || snowmanX5 - snowmanBodyR < 0) snowmanSpeed5 = -snowmanSpeed5;
 
     requestAnimationFrame(animate);
   }
 
   animate();
 </script>
-
 </body>
-
 </html>
+
 
 
