@@ -1,55 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-   
-    <title>HTML JavaScript Canvas</title>
-    <style>
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; } 
-    </style>
+
+<title>Canvas Shapes Adventure!</title>
+
+<style>
+
+  canvas {
+
+    border: 2px black;
+
+  }
+
+</style>
+
 </head>
+
 <body>
-    <canvas id="myCanvas" width="600" height="400" style="border:1px solid #0"></canvas>
 
-    
-    <script>
-	    const canvas = document.getElementById("myCanvas");
+<canvas id="myCanvas" width="1450" height="760"></canvas>
 
-const ctx = canvas.getContext("2d");                                  
-    
-    let x = 0;
-  const y = 50;
-  const width = 30;
-  const height = 70;
-  let speed = 4;
+<script>
+
+  const canvas = document.getElementById('myCanvas');
+
+  const ctx = canvas.getContext('2d');
+
+  let rect1X = 50;
+  const rect1Y = 100;
+  const rect1Width = 50;
+  const rect1Height = 100;
+  let rect1Speed = 9;
  
-  function draw() { 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.beginPath();
-      ctx.rect(x, y, width, height);
-     ctx.fillStyle = "black";
-     ctx.fill();
-     ctx.closePath();
-
-      x += speed
-      if (x + width > canvas.width || x < 0)
-
-
-
-
-	{
-         speed = -speed;
-     }
-
+  let tri1X = 50;
+  const tri1Y = 300;
+  const tri1Size = 100;
+  let tri1Speed = 8;
  
-    requestAnimationFrame(draw);
- }
+  let circ1X = 600;
+  const circ1Y = 150;
+  const circ1Radius = 40;
+  let circ1Speed = -7;
+ 
+  let sq2X = 700;
+  const sq2Y = 350;
+  const sq2Side = 60;
+  let sq2Speed = -5.1;
 
-  requestAnimationFrame(draw);
+  let sq3X = 700;
+  const sq3Y = 400;
+  const sq3Side = 95;
+  let sq3Speed = -5;
+
+  function drawShapes() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+   ctx.rect(rect1X, rect1Y, rect1Width, rect1Height);
+    ctx.fillStyle = "black"
+    ctx.fill();
+    ctx.closePath();
+    rect1X += rect1Speed;
+    if (rect1X + rect1Width > canvas.width || rect1X < 0) {
+      rect1Speed = -rect1Speed;
+
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(tri1X, tri1Y);
+    ctx.lineTo(tri1X + tri1Size, tri1Y);
+    ctx.lineTo(tri1X + tri1Size / 2, tri1Y - tri1Size);
+    ctx.closePath();
+    ctx.fillStyle = "black";
+    ctx.fill();
+    tri1X += tri1Speed;
+    if (tri1X + tri1Size > canvas.width || tri1X < 0) {
+      tri1Speed = -tri1Speed;
+
+    }
+
+    ctx.beginPath();
+    ctx.arc(circ1X, circ1Y, circ1Radius, 0, Math.PI * 2);
+    ctx.fillStyle = "black";
+   ctx.fill();
+   ctx.closePath();
+   circ1X += circ1Speed;
+   if (circ1X + circ1Radius > canvas.width || circ1X - circ1Radius < 0) {
+      circ1Speed = -circ1Speed;
+    }
+
+    ctx.beginPath();
+    ctx.rect(sq2X, sq2Y, sq2Side, sq2Side);
+    ctx.fillStyle = "grey";
+    ctx.fill();
+    ctx.closePath();
+    sq2X += sq2Speed;
+    if (sq2X + sq2Side > canvas.width || sq2X < 0) {
+      sq2Speed = -sq2Speed;
+
+    }
+
+      ctx.beginPath();                                                            
+      ctx.rect(sq3X, sq3Y, sq3Side, sq3Side);                                     
+     ctx.fillStyle = "black";                                                     
+     ctx.fill();                                                                 
+     ctx.closePath();                                                            
+    sq3X += sq3Speed;                                                           
+    if (sq3X + sq3Side > canvas.width || sq3X < 0) {                            
+      sq3Speed = -sq3Speed;
 
 
+   }
 
-    </script>
+    requestAnimationFrame(drawShapes);
+
+  }
+
+  drawShapes();
+
+</script>
+
 </body>
+
 </html>
 
