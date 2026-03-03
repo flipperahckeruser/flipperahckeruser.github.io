@@ -9,9 +9,47 @@
     </style>
 </head>
 <body>
-    <canvas id="myCanvas"></canvas>
+    <canvas id="myCanvas" width="600" height="400" style="border:1px solid #0"></canvas>
+
     
-    <script src="canvas.js"></script>
+    <script>
+	    const canvas = document.getElementById("myCanvas");
+
+const ctx = canvas.getContext("2d");                                  
+    
+    let x = 0;
+  const y = 50;
+  const width = 30;
+  const height = 70;
+  let speed = 4;
+ 
+  function draw() { 
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.rect(x, y, width, height);
+     ctx.fillStyle = "black";
+     ctx.fill();
+     ctx.closePath();
+
+      x += speed
+      if (x + width > canvas.width || x < 0)
+
+
+
+
+	{
+         speed = -speed;
+     }
+
+ 
+    requestAnimationFrame(draw);
+ }
+
+  requestAnimationFrame(draw);
+
+
+
+    </script>
 </body>
 </html>
 
