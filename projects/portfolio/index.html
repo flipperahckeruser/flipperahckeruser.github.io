@@ -1,0 +1,132 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+       <title>My Portfolio</title>  
+<style>  
+body {  
+        margin: 0;  
+   padding: 0;  
+     font-family: Arial, sans-serif;  
+   background-color: #f0f0f0;  
+  color: #333;  
+}  
+     header {  
+      background-color: #2c3e50;  
+  color: white;  
+      padding: 20px;  
+text-align: center;  
+}  
+        .intro-section {  
+text-align: center;  
+  padding: 40px 20px;  
+   }  
+    .center-image {  
+   max-width: 100%;  
+   height: auto;  
+  border-radius: 8px;  
+    margin: 20px 0;  
+   }         
+
+
+
+
+      .projects-section {  
+       background-color: #e0e0e0;  
+    padding: 40px 20px;  
+}  
+    .project-card {  
+background-color: white;  
+    border-left: 5px solid #7393B3;  
+           padding: 40px;  
+      margin: 40px auto;  
+max-width: 600px;  
+box-shadow: 0 2px 5px;  
+text-align: center;  
+cursor: pointer;  
+}  
+.project-details {  
+display: none;  
+margin-top: 20px;  
+padding-top: 20px;  
+     border-top: 1px solid #eee;  
+}  
+.project-details img {  
+max-width: 100%;  
+height: auto;  
+       border-radius: 5px;  
+     margin-top: 10px;  
+}  
+h2 {  
+color: #2c3e50;  
+}  
+</style>  
+      </head>  
+<body>  
+  
+       <header>  
+<h1>Final Portfolio</h1>  
+</header>  
+    
+                          
+
+<div class="intro-section">  
+	<p style="font-size: 18px; line-height: 1.6; max-width: 600px; margin: 0 auto;"> <strong> My name is Danny, and this is my 2026 Final Portfolio. This year, I focused heavily on web design and coding. The projects included here show the technical skills I've developed and the progress I've made. One of my major accomplishments was earning my HTML certification, which gave me a strong foundation in building and structuring websites. I'm proud of the work I've done and invite you to take a look at what I've created.</strong></p>
+    <p><u>Html certification image</u></p>  
+  
+<img src="Certificate.jpg.png" width="600" height="400" alt="Profile Image" class="center-image">  
+</div>  
+  
+<div class="projects-section">  
+<h2 style="text-align: center;">My Projects</h2>  
+  
+<div class="project-card" onclick="toggleDetails('details1')">  
+<h3>Project Two: Recipes</h3> 
+<div id="details1" class="project-details">  
+	<p style="text-align: center; font-weight: bold;"><strong> This was one of my first projects. The goal was to create a website with links to two different pages that included recipes for two different dishes.<br> We had to include an image, a recipe table, and steps explaining what to do and how to do it.<br> <hr style="border: 1px solid black;"> </p> <p style="text-align: center; text-align: left;"> I chose to do ice cream and cookies, and I got my images from Google.<br> The project turned out good, but it wasn't perfect.<br> <hr style="border: 1px solid black;"> This was one of the harder projects.<br> If I had to rate it, I would give this project a 7 out of 10 because it was pretty difficult.<strong> </p> 
+	<a href="1.html">Ice cream</a>
+	<a href="2.html">Cookies</a>
+
+
+		<img src="Cookies.jpg.png" alt="code"> 
+ <img src="Icecream.jpg.png" alt="code"> 
+</div>  
+</div>  
+  
+<div class="project-card" onclick="toggleDetails('details2')">  
+<h3>Project Two: Game project</h3>    
+<div id="details2" class="project-details">  
+	<p style="text-align: center; font-weight: bold;"><strong> This project was a group project, my group members were Senia and Pritvi.<br> For this project we were using JavaScript animation to make a game and we had to use variable collisions.<br> <hr style="border: 1px solid black;"> </p> <p style="text-align: center; text-align: left;"> I honestly did very little variable work but focused on color and looks. I changed theme colors, background, and made things more vibrant.<br> The project turned out okay, Senia did the most work on it though.<br> <hr style="border: 1px solid black;"> This was one of the hardest projects.<br> If I had to rate it, I would give this project an 8 out of 10 even though I did not do that much work.</strong> </p>
+	<img src="Code.jpg.png" alt="code">  
+</div>  
+</div> i
+  
+<div class="project-card" onclick="toggleDetails('details3')">  
+<h3>Project Three: Self Portriat</h3>  
+<div id="details3" class="project-details">  
+	<p style="text-align: center; font-weight: bold;"><strong> In this project, we were given the task of using JavaScript canvas items to create a self-portrait.<br> We had to use more than 20 different shapes and use many different colors to make it look right.<br> <hr style="border: 1px solid black;"> </p> <p style="text-align: center; text-align:;"> At first, my portrait was looking pretty good, but I started to have trouble when I began working on my hair.<br> It started to look like I was a construction worker instead of how I actually look.<br> <hr style="border: 1px solid black;"> Even though that happened, I still think this was one of the easier projects we did all year.<br> If I had to rate it, I would give this project a 6 out of 10.<strong> </p>
+
+		<a href="index copy 2.html">Portriat</a>
+
+		<img src="Portriat.jpg.png" alt="Portriat">  
+
+</div>  
+</div>  
+  
+</div>  
+  
+<script>  
+function toggleDetails(id) {  
+var details = document.getElementById(id);  
+if (details.style.display === "block") {  
+details.style.display = "none";  
+} else {  
+details.style.display = "block";  
+}  
+}  
+</script>  
+  
+</body>  
+</html>  
+
